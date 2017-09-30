@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Place ID Finder</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./gui.css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+        <div class="page-header" style="margin:30px">
+                <h1>Análisis de ruta óptima</h1>
+            </div>
+    <input id="pac-input" class="controls" type="text" placeholder="Ingresa una ubicación" onClick="this.select();">
+    <div id="map"></div>
+    <div id="infowindow-content">
+        <span id="place-name" class="title"></span><br>
+        <span id="place-address"></span>
+        <href id="place-add"></href>
+
+
+    </div>
+
+    <script src="./maps.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsp_e7aATO7Yk_BwiO3qNmmZ5zPzy0VKA&libraries=places&callback=initMap"
+        async defer></script>
+
+    <div class="container" style="width:100%">
+        
+        <div style="margin:20px">
+            <div class="switch">
+                <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" checked>
+                <label for="cmn-toggle-4"></label>
+            </div>
+            <p style="margin-left:90px">Regresar al lugar inicial al concluir el recorrido</p>
+        </div>
+        <button class="btn btn-primary" id="btn-agregar">Agregar lugar</button>
+        <button class="btn btn-danger" id="btn-limpiar">Limpiar lista</button>
+        <button class="btn btn-success" id="btn-calcula">Calcula ruta óptima</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" role="dialog">
+            <div class="modal-dialog modal-xl">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Ruta óptima</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>De</th>
+                                    <th>A</th>
+                                    <th>Tiempo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <ul class="list-group">
+
+        </ul>
+    </div>
+</body>
+
+</html>
